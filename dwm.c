@@ -664,6 +664,7 @@ configure(Client *c)
 void
 configurenotify(XEvent *e)
 {
+	Client *c;
 	Monitor *m;
 	XConfigureEvent *ev = &e->xconfigure;
 	int dirty;
