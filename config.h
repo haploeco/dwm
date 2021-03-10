@@ -6,33 +6,33 @@ static const unsigned int gappx     = 15;        /* gaps between windows */
 static const unsigned int snap      = 16;       /* snap pixel */
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
 static const unsigned int systrayonleft = 0;   	/* 0: systray in the right corner, >0: systray on left of status text */
-static const unsigned int systrayspacing = 2;   /* systray spacing */
+static const unsigned int systrayspacing = 3;   /* systray spacing */
 static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display systray on the first monitor, False: display systray on the last monitor*/
 static const int showsystray        = 1;     /* 0 means no systray */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = {
-	"JetBrains Mono:pixelsize=16:antialias=true:autohint=true",
+	"JetbrainsMono:pixelsize=16:antialias=true:autohint=true",
 	"EmojiOne:pixelsize=16:antialias=true:autohint=true",
 };
-static const char dmenufont[]       = "JetBrains Mono:pixelsize=14:antialias=true:autohint=true";
+static const char dmenufont[]       = "JetbrainsMono:pixelsize=16:antialias=true:autohint=true";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
 static const char col_cyan[]        = "#005577";
 
-static const char norm_fg[] = "#ccdaf3";
-static const char norm_bg[] = "#151e31";
-static const char norm_border[] = "#8e98aa";
+static const char norm_fg[] = "#beadc4";
+static const char norm_bg[] = "#05050A";
+static const char norm_border[] = "#857989";
 
-static const char sel_fg[] = "#ccdaf3";
-static const char sel_bg[] = "#6C8DCB";
-static const char sel_border[] = "#ccdaf3";
+static const char sel_fg[] = "#beadc4";
+static const char sel_bg[] = "#364572";
+static const char sel_border[] = "#beadc4";
 
-static const char urg_fg[] = "#ccdaf3";
-static const char urg_bg[] = "#6987B8";
-/* static const char urg_border[] = "#6987B8"; */
+static const char urg_fg[] = "#beadc4";
+static const char urg_bg[] = "#4F355B";
+/* static const char urg_border[] = "#4F355B"; */
 
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
@@ -41,7 +41,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "💻 work", "  code", " 🙃 gsd", "🐍 py", " chat", "🎼 music", "👺 tf", "🍕 haplo", "🕸 web" };
+static const char *tags[] = { "💻work", "🦡code", "🍄gsd", "🐍py", "chat", "🎵music", "👺tf", "🍕haplo", "🕸 web" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -52,9 +52,12 @@ static const Rule rules[] = {
 	{ "Gimp",                 NULL,       NULL,       0,            0,          1,           -1 },
 	{ "Firefox",              NULL,       NULL,       1 << 8,       0,          0,           -1 },
 	{ "jetbrains-pycharm",    NULL,       NULL,       1 << 3,       1,          1,           -1 },
+	{ "jetbrains-toolbox",    NULL,       NULL,       0,            1,          1,           -1 },
 	{ "Google-chrome",        NULL,       "Authy",    0,            1,          1,           -1 },
 	{ "Slack",                NULL,       NULL,       1 << 4,       0,          0,           -1 },
+	{ "discord",              NULL,       NULL,       1 << 4,       0,          0,           -1 },
 	{ "Keybase",              NULL,       NULL,       1 << 4,       0,          0,           -1 },
+	{ "Microsoft Teams",      NULL,       NULL,       1 << 4,       0,          0,           -1 },
 };
 
 /* layout(s) */
@@ -68,9 +71,9 @@ static const Layout layouts[] = {
 	{ "[]=",      tile },    /* first entry is default */
 	{ "><>",      NULL },    /* no layout function means floating behavior */
 	{ "[M]",      monocle },
-	{ "|M|",      centeredmaster },
-	{ ">M>",      centeredfloatingmaster },
-	{ "HHH",      grid },
+	{ "||",      centeredmaster },
+	{ ">>",      centeredfloatingmaster },
+	{ "|-|-|",    grid },
 };
 
 /* key definitions */
