@@ -45,12 +45,14 @@ typedef struct {
 	const void *cmd;
 } Sp;
 const char *spcmd1[] = {"st", "-n", "spterm", "-g", "120x34", NULL };
-const char *spcmd2[] = {"st", "-n", "spfm", "-g", "144x41", "-e", "ranger", NULL };
+const char *spcmd2[] = {"st", "-n", "spfm", "-g", "144x41", "-e", "vifm", NULL };
+const char *spcmd3[] = {"st", "-n", "spcalc", "-f", "monospace:size=16", "-g", "50x20", "-e", "bc", "-lq", NULL };
 
 static Sp scratchpads[] = {
 	/* name          cmd  */
 	{"spterm",      spcmd1},
-	{"spranger",    spcmd2},
+	{"spvifm",      spcmd2},
+	{"spcalc",      spcmd3},
 };
 
 /* tagging */
@@ -61,18 +63,19 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class									instance    title       tags mask     iscentered   isfloating   monitor */
-	{ "Gimp",									NULL,       NULL,       0,            0,           1,           -1 },
-	{ "Firefox",							NULL,       NULL,       1 << 8,       0,           0,           -1 },
-	{ "jetbrains-pycharm",    NULL,       NULL,       1 << 3,       1,           1,           -1 },
-	{ "jetbrains-toolbox",    NULL,       NULL,       0,            1,           1,           -1 },
-	{ "Google-chrome",        NULL,       "Authy",    0,            1,           1,           -1 },
-	{ "Slack",                NULL,       NULL,       1 << 4,       0,           0,           -1 },
-	{ "discord",              NULL,       NULL,       1 << 4,       0,           0,           -1 },
-	{ "Keybase",              NULL,       NULL,       1 << 4,       0,           0,           -1 },
-	{ "Microsoft Teams",      NULL,       NULL,       1 << 4,       0,           0,           -1 },
-	{ NULL,										"spterm",		NULL,				SPTAG(0),		  1,					 1,					  -1 },
-	{ NULL,										"spfm",			NULL,				SPTAG(1),			1,					 1,			      -1 },
+	/* class                  instance    title       tags mask     iscentered  isfloating   monitor */
+	{ "Gimp",                 NULL,       NULL,       0,            0,          1,           -1 },
+	{ "Firefox",              NULL,       NULL,       1 << 8,       0,          0,           -1 },
+	{ "jetbrains-pycharm",    NULL,       NULL,       1 << 3,       1,          1,           -1 },
+	{ "jetbrains-toolbox",    NULL,       NULL,       0,            1,          1,           -1 },
+	{ "Google-chrome",        NULL,       "Authy",    0,            1,          1,           -1 },
+	{ "Slack",                NULL,       NULL,       1 << 4,       0,          0,           -1 },
+	{ "discord",              NULL,       NULL,       1 << 4,       0,          0,           -1 },
+	{ "Keybase",              NULL,       NULL,       1 << 4,       0,          0,           -1 },
+	{ "Microsoft Teams",      NULL,       NULL,       1 << 4,       0,          0,           -1 },
+	{ NULL,				            "spterm",		NULL,				SPTAG(0),		  1,				  1,					 -1 },
+	{ NULL,				            "spfm",			NULL,				SPTAG(1),			1,					1,			     -1 },
+	{ NULL,				            "spcalc",		NULL,				SPTAG(2),			1,					1,			     -1 },
 };
 
 /* layout(s) */
@@ -82,7 +85,7 @@ static const int resizehints = 1;    /* 1 means respect size hints in tiled resi
 
 #include "layouts.c"
 static const Layout layouts[] = {
-		/* symbol     arrange function */
+	/* symbol     arrange function */
 	{ "[]=",      tile },    /* first entry is default */
 	{ "><>",      NULL },    /* no layout function means floating behavior */
 	{ "[M]",      monocle },
@@ -108,7 +111,6 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", norm_bg, "-nf", norm_fg, "-sb", sel_bg, "-sf", sel_fg, NULL };
 static const char *termcmd[]  = { "st", NULL };
-
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -145,7 +147,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_equal,            setgaps,        {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_equal,            setgaps,        {.i = 0  } },
 	{ MODKEY|ShiftMask,						  XK_Return,           togglescratch,  {.ui = 0 } },
-	{ MODKEY,            			      XK_apostrophe,	     togglescratch,  {.ui = 1 } },
+	{ MODKEY,            			      XK_r,	               togglescratch,  {.ui = 1 } },
+	{ MODKEY,            			      XK_apostrophe,	     togglescratch,  {.ui = 2 } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
