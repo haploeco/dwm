@@ -31,9 +31,11 @@ static const char norm_fg[] = "#beadc4";
 static const char norm_bg[] = "#05050A";
 static const char norm_border[] = "#857989";
 
+/* static const char sel_fg[] = "#013220"; */
 static const char sel_fg[] = "#beadc4";
 static const char sel_bg[] = "#364572";
-static const char sel_border[] = "#beadc4";
+/* static const char sel_border[] = "#beadc4"; */
+static const char sel_border[] = "#013220";
 
 static const char urg_fg[] = "#beadc4";
 static const char urg_bg[] = "#4F355B";
@@ -89,7 +91,7 @@ static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
 
 /* #include "layouts.c" */
-#define FORCE_VSPLIT 1  /* nrowgrid layout: force two clients to always split vertically */
+#define FORCE_VSPLIT 0  /* nrowgrid layout: force two clients to always split vertically */
 #include "vanitygaps.c"
 
 static const Layout layouts[] = {
@@ -142,14 +144,15 @@ static Key keys[] = {
 	{ MODKEY,                       XK_Tab,              view,           {0} },
 	{ MODKEY|ShiftMask,             XK_c,                killclient,     {0} },
 	{ MODKEY,			                  XK_t,		             setlayout,      {.v = &layouts[0]} }, /* tile */
-	{ MODKEY|ShiftMask,		          XK_u,                setlayout,      {.v = &layouts[1]} }, /* monocle */
+	{ MODKEY,		                    XK_m,                setlayout,      {.v = &layouts[1]} }, /* monocle */
 	{ MODKEY,			                  XK_y,                setlayout,      {.v = &layouts[2]} }, /* spiral */
 	{ MODKEY|ShiftMask,		          XK_y,                setlayout,      {.v = &layouts[3]} }, /* dwindle */
 	{ MODKEY,			                  XK_u,                setlayout,      {.v = &layouts[4]} }, /* deck */
-	{ MODKEY|ShiftMask,		          XK_t,                setlayout,      {.v = &layouts[5]} }, /* bstack */
+	{ MODKEY|ShiftMask,		          XK_u,                setlayout,      {.v = &layouts[5]} }, /* bstack */
 	{ MODKEY,		                    XK_g,                setlayout,      {.v = &layouts[7]} }, /* grid */
-	{ MODKEY,			                  XK_i,                setlayout,      {.v = &layouts[11]} }, /* centeredmaster */
+	{ MODKEY|ControlMask,		        XK_i,                setlayout,      {.v = &layouts[11]} }, /* centeredmaster */
 	{ MODKEY|ShiftMask,		          XK_i,                setlayout,      {.v = &layouts[12]} }, /* centeredfloatingmaster */
+	{ MODKEY,		                    XK_f,                setlayout,      {.v = &layouts[13]} }, /* floating */
 	{ MODKEY|ShiftMask,             XK_f,                fullscreen,     {0} },
 	{ MODKEY|ControlMask,           XK_space,            setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,            togglefloating, {0} },
