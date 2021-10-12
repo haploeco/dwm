@@ -54,6 +54,9 @@ typedef struct {
 const char *spcmd1[] = {"st", "-n", "spterm", "-g", "174x45", NULL };
 const char *spcmd2[] = {"st", "-n", "spfm", "-g", "144x41", "-e", "vifm", NULL };
 const char *spcmd3[] = {"st", "-n", "spcalc", "-f", "monospace:size=16", "-g", "50x20", "-e", "bc", "-lq", NULL };
+const char *playpause[] = {"nccontrol", "ncspot", "play-pause", NULL };
+const char *medianext[] = {"nccontrol", "ncspot", "next", NULL };
+const char *mediaprev[] = {"nccontrol", "ncspot", "prev", NULL };
 
 static Sp scratchpads[] = {
 	/* name          cmd  */
@@ -176,6 +179,9 @@ static Key keys[] = {
 	{ MODKEY|ControlMask,           XK_a,                defaultgaps,    {0} },
 	{ 0,                            XF86XK_Explorer,     togglescratch,  {.ui = 1 } },
 	{ 0,                            XF86XK_Calculator,   togglescratch,  {.ui = 2 } },
+	{ 0,                            XF86XK_AudioPlay,    spawn,  {.v = playpause } },
+	{ 0,                            XF86XK_AudioNext,    spawn,  {.v = medianext } },
+	{ 0,                            XF86XK_AudioPrev,    spawn,  {.v = mediaprev } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
