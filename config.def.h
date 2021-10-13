@@ -111,7 +111,7 @@ static const Layout layouts[] = {
 	{ ":::",      gaplessgrid },              /* layout: 10 */
 	{ "|M|",      centeredmaster },           /* layout: 11 */
 	{ ">M>",      centeredfloatingmaster },   /* layout: 12 */
-	{ "><>",      NULL },    /* no layout function means floating behavior */
+	{ "><>",      NULL },    /* layout 13: no layout function means floating behavior */
 	{ NULL,       NULL },
 };
 
