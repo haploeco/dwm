@@ -75,10 +75,9 @@ static const Rule rules[] = {
 	 */
 	/* class                  instance    title       tags mask     iscentered  isfloating   monitor */
 	{ "Gimp",                 NULL,       NULL,       0,            0,          1,           -1 },
-	{ "Firefox",              NULL,       NULL,       1 << 8,       0,          0,           -1 },
+	{ "firefox",              NULL,       NULL,       1 << 8,       0,          0,           -1 },
 	{ "jetbrains-pycharm",    NULL,       NULL,       1 << 3,       1,          1,           -1 },
 	{ "jetbrains-toolbox",    NULL,       NULL,       0,            1,          1,           -1 },
-	{ "Google-chrome",        NULL,       "Authy",    0,            1,          1,           -1 },
 	{ "Slack",                NULL,       NULL,       1 << 4,       0,          0,           -1 },
 	{ "discord",              NULL,       NULL,       1 << 4,       0,          0,           -1 },
 	{ "Keybase",              NULL,       NULL,       1 << 4,       0,          0,           -1 },
@@ -99,20 +98,20 @@ static const int resizehints = 1;    /* 1 means respect size hints in tiled resi
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "[]=",      tile },    /* first entry is default */
-	{ "[M]",      monocle },
- 	{ "[@]",      spiral },
-	{ "[\\]",     dwindle },
-	{ "H[]",      deck },
-	{ "TTT",      bstack },
-	{ "===",      bstackhoriz },
-	{ "HHH",      grid },
-	{ "###",      nrowgrid },
-	{ "---",      horizgrid },
-	{ ":::",      gaplessgrid },
-	{ "|M|",      centeredmaster },
-	{ ">M>",      centeredfloatingmaster },
-	{ "><>",      NULL },    /* no layout function means floating behavior */
+	{ "[]=",      tile },                     /* layout: 0 first entry is default */
+	{ "[M]",      monocle },                  /* layout: 1 */
+ 	{ "[@]",      spiral },                   /* layout: 2 */
+	{ "[\\]",     dwindle },                  /* layout: 3 */
+	{ "H[]",      deck },                     /* layout: 4 */
+	{ "TTT",      bstack },                   /* layout: 5 */
+	{ "===",      bstackhoriz },              /* layout: 6 */
+	{ "HHH",      grid },                     /* layout: 7 */
+	{ "###",      nrowgrid },                 /* layout: 8 */
+	{ "---",      horizgrid },                /* layout: 9 */
+	{ ":::",      gaplessgrid },              /* layout: 10 */
+	{ "|M|",      centeredmaster },           /* layout: 11 */
+	{ ">M>",      centeredfloatingmaster },   /* layout: 12 */
+	{ "><>",      NULL },    /* layout 13: no layout function means floating behavior */
 	{ NULL,       NULL },
 };
 
@@ -147,18 +146,18 @@ static Key keys[] = {
 	{ MODKEY,                       XK_space,            zoom,           {0} },
 	{ MODKEY,                       XK_Tab,              view,           {0} },
 	{ MODKEY|ShiftMask,             XK_c,                killclient,     {0} },
-	{ MODKEY,                       XK_t,                setlayout,      {.v = &layouts[0]} }, /* tile */
-	{ MODKEY|ControlMask,           XK_t,                setlayout,      {.v = &layouts[2]} }, /* spiral */
-	{ MODKEY|ShiftMask,             XK_t,                setlayout,      {.v = &layouts[3]} }, /* dwindle */
-	{ MODKEY,                       XK_m,                setlayout,      {.v = &layouts[1]} }, /* monocle */
+	{ MODKEY,                       XK_t,                setlayout,      {.v = &layouts[0]} },  /* tile */
+	{ MODKEY|ControlMask,           XK_t,                setlayout,      {.v = &layouts[2]} },  /* spiral */
+	{ MODKEY|ShiftMask,             XK_t,                setlayout,      {.v = &layouts[3]} },  /* dwindle */
+	{ MODKEY,                       XK_m,                setlayout,      {.v = &layouts[1]} },  /* monocle */
 	{ MODKEY|ShiftMask,             XK_m,                setlayout,      {.v = &layouts[11]} }, /* centeredmaster */
 	{ MODKEY|ControlMask,           XK_m,                setlayout,      {.v = &layouts[12]} }, /* centeredfloatingmaster */
-	{ MODKEY,                       XK_u,                setlayout,      {.v = &layouts[4]} }, /* deck */
-	{ MODKEY|ShiftMask,             XK_u,                setlayout,      {.v = &layouts[5]} }, /* bstack */
-	{ MODKEY|ControlMask,           XK_u,                setlayout,      {.v = &layouts[6]} }, /* bstack */
-	{ MODKEY,                       XK_g,                setlayout,      {.v = &layouts[7]} }, /* grid */
-	{ MODKEY|ShiftMask,             XK_g,                setlayout,      {.v = &layouts[8]} }, /* nrowgrid */
-	{ MODKEY|ControlMask,           XK_g,                setlayout,      {.v = &layouts[9]} }, /* horizgrid */
+	{ MODKEY,                       XK_u,                setlayout,      {.v = &layouts[4]} },  /* deck */
+	{ MODKEY|ShiftMask,             XK_u,                setlayout,      {.v = &layouts[5]} },  /* bstack */
+	{ MODKEY|ControlMask,           XK_u,                setlayout,      {.v = &layouts[6]} },  /* bstack horizontal*/
+	{ MODKEY,                       XK_g,                setlayout,      {.v = &layouts[7]} },  /* grid */
+	{ MODKEY|ShiftMask,             XK_g,                setlayout,      {.v = &layouts[8]} },  /* nrowgrid */
+	{ MODKEY|ControlMask,           XK_g,                setlayout,      {.v = &layouts[9]} },  /* horizgrid */
 	{ MODKEY|ShiftMask|ControlMask, XK_g,                setlayout,      {.v = &layouts[10]} }, /* gaplessgrid */
 	{ MODKEY,                       XK_f,                setlayout,      {.v = &layouts[13]} }, /* floating */
 	{ MODKEY|ShiftMask,             XK_f,                fullscreen,     {0} },
