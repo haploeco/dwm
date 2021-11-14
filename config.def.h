@@ -73,18 +73,20 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class                  instance    title       tags mask     iscentered  isfloating   monitor */
-	{ "Gimp",                 NULL,       NULL,       0,            0,          1,           -1 },
-	{ "firefox",              NULL,       NULL,       1 << 8,       0,          0,           -1 },
-	{ "jetbrains-pycharm",    NULL,       NULL,       1 << 3,       1,          1,           -1 },
-	{ "jetbrains-toolbox",    NULL,       NULL,       0,            1,          1,           -1 },
-	{ "Slack",                NULL,       NULL,       1 << 4,       0,          0,           -1 },
-	{ "discord",              NULL,       NULL,       1 << 4,       0,          0,           -1 },
-	{ "Keybase",              NULL,       NULL,       1 << 4,       0,          0,           -1 },
-	{ "Microsoft Teams",      NULL,       NULL,       1 << 4,       0,          0,           -1 },
-	{ NULL,				            "spterm",		NULL,				SPTAG(0),		  1,				  1,					 -1 },
-	{ NULL,				            "spfm",			NULL,				SPTAG(1),			1,					1,			     -1 },
-	{ NULL,				            "spcalc",		NULL,				SPTAG(2),			1,					1,			     -1 },
+	/* class                 instance     title       tags mask     iscentered  isfloating   monitor */
+	{ "Gimp",                NULL,        NULL,       0,            0,          1,           -1 },
+	{ "firefox",             NULL,        NULL,       1 << 8,       0,          0,           -1 },
+	{ NULL,                  NULL, "HBO Max - Brave", 1 << 5,       0,          0,           -1 },
+	{ NULL,                  NULL, "neomutt",         1 << 7,       0,          0,           -1 },
+	{ "jetbrains-pycharm",   NULL,        NULL,       1 << 3,       1,          1,           -1 },
+	{ "jetbrains-toolbox",   NULL,        NULL,       0,            1,          1,           -1 },
+	{ "Slack",               NULL,        NULL,       1 << 4,       0,          0,           -1 },
+	{ "discord",             NULL,        NULL,       1 << 4,       0,          0,           -1 },
+	{ "Keybase",             NULL,        NULL,       1 << 4,       0,          0,           -1 },
+	{ "Microsoft Teams",     NULL,        NULL,       1 << 4,       0,          0,           -1 },
+	{ NULL,				           "spterm",		NULL,				SPTAG(0),		  1,				  1,					 -1 },
+	{ NULL,				           "spfm",			NULL,				SPTAG(1),			1,					1,			     -1 },
+	{ NULL,				           "spcalc",		NULL,				SPTAG(2),			1,					1,			     -1 },
 };
 
 /* layout(s) */
