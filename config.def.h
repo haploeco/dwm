@@ -17,10 +17,10 @@ static       int smartgaps          = 0;        /* 1 means no outer gap when the
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = {
-	"JetbrainsMono Nerd Font:size=13:antialias=true:autohint=true",
+	"SauceCodePro Nerd Font:size=12:antialias=true:autohint=true",
 	"EmojiOne:size=13:antialias=true:autohint=true",
 };
-static const char dmenufont[]       = "JetbrainsMono Nerd Font:size=13:antialias=true:autohint=true";
+static const char dmenufont[]       = "SauceCodePro Nerd Font:size=12:antialias=true:autohint=true";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
@@ -52,7 +52,7 @@ typedef struct {
 	const void *cmd;
 } Sp;
 const char *spcmd1[] = {"st", "-n", "spterm", "-g", "174x45", NULL };
-const char *spcmd2[] = {"st", "-n", "spfm", "-g", "144x41", "-e", "vifm", NULL };
+const char *spcmd2[] = {"st", "-n", "spfm", "-g", "144x41", "-e", "lf", NULL };
 const char *spcmd3[] = {"st", "-n", "spcalc", "-f", "monospace:size=16", "-g", "50x20", "-e", "bc", "-lq", NULL };
 const char *playpause[] = {"nccontrol", "ncspot", "play-pause", NULL };
 const char *medianext[] = {"nccontrol", "ncspot", "next", NULL };
@@ -76,6 +76,7 @@ static const Rule rules[] = {
 	/* class                 instance     title       tags mask     iscentered  isfloating   monitor */
 	{ "Gimp",                NULL,        NULL,       0,            0,          1,           -1 },
 	{ "firefox",             NULL,        NULL,       1 << 8,       0,          0,           -1 },
+	{ "Brave-browser",       NULL,        NULL,       1 << 8,       0,          0,           -1 },
 	{ NULL,                  NULL, "HBO Max - Brave", 1 << 5,       0,          0,           -1 },
 	{ NULL,                  NULL, "neomutt",         1 << 7,       0,          0,           -1 },
 	{ "jetbrains-pycharm",   NULL,        NULL,       1 << 3,       1,          1,           -1 },
