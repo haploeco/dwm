@@ -51,9 +51,9 @@ typedef struct {
 	const char *name;
 	const void *cmd;
 } Sp;
-const char *spcmd1[] = {"st", "-n", "spterm", "-g", "174x45", NULL };
-const char *spcmd2[] = {"st", "-n", "spfm", "-g", "144x41", "-e", "lf", NULL };
-const char *spcmd3[] = {"st", "-n", "spcalc", "-f", "monospace:size=16", "-g", "50x20", "-e", "bc", "-lq", NULL };
+const char *spcmd1[] = {"kitty", "--name", "spterm", "--session", "/home/haplo/.config/kitty/spterm-session.conf", NULL };
+const char *spcmd2[] = {"kitty", "--name", "spfm", "--session", "/home/haplo/.config/kitty/spfm-session.conf", NULL };
+const char *spcmd3[] = {"kitty", "--name", "spcalc", "--session", "/home/haplo/.config/kitty/spcalc-session.conf", NULL };
 const char *playpause[] = {"nccontrol", "ncspot", "play-pause", NULL };
 const char *medianext[] = {"nccontrol", "ncspot", "next", NULL };
 const char *mediaprev[] = {"nccontrol", "ncspot", "prev", NULL };
@@ -133,7 +133,7 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", norm_bg, "-nf", norm_fg, "-sb", sel_bg, "-sf", sel_fg, NULL };
-static const char *termcmd[]  = { "st", NULL };
+static const char *termcmd[]  = { "kitty", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
