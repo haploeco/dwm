@@ -178,7 +178,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,						  XK_Return,           togglescratch,  {.ui = 0 } },
 	{ MODKEY,                       XK_z,                incrgaps,       {.i = +3 } },
 	{ MODKEY|ShiftMask,             XK_z,                incrgaps,       {.i = -3 } },
-	{ MODKEY|ShiftMask,             XK_g,                togglegaps,     {0} },
+	{ MODKEY|ShiftMask,             XK_a,                togglegaps,     {0} },
 	{ MODKEY|ControlMask,           XK_a,                defaultgaps,    {0} },
 	{ 0,                            XF86XK_Explorer,     togglescratch,  {.ui = 1 } },
 	{ 0,                            XF86XK_Calculator,   togglescratch,  {.ui = 2 } },
